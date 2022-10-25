@@ -6,7 +6,7 @@ import { FaMouse } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <Navbar className="mb-3" collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar className="mb-5" collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand as={Link} to="/"><FaMouse className="me-2"></FaMouse> WEB-<span className="fw-bold">HUNT</span></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

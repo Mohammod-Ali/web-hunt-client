@@ -7,7 +7,7 @@ const Course = ({ course }) => {
   const { course_name, image, course_details } = course;
   return (
     <div className="d-flex align-items-center justify-content-center">
-      <Card className="mb-5" style={{ width: "280px", height: "500px" }}>
+      <Card className="mb-5" style={{ width: "280px", height: "470px" }}>
         <Card.Img variant="top" src={image} />
         <Card.Body>
           <Card.Title>{course_name}</Card.Title>

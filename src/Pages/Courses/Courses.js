@@ -6,7 +6,7 @@ const Courses = () => {
   const courses = useLoaderData();
   console.log(courses);
   return (
-    <div>
+    <div className="container">
       <h1>We provide this {courses.length} Courses</h1>
       <div className="card-container">
         {courses.map((course) => (
