@@ -6,6 +6,7 @@ import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
+import NotFound from "../../Pages/NotFound/NotFound";
 
 export const routes = createBrowserRouter([
     {
@@ -28,6 +29,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/blogs',
+                loader: () => fetch('http://localhost:5000/blogs'),
                 element: <Blogs></Blogs>
             },
             {
@@ -37,6 +39,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '*',
+                element: <NotFound></NotFound>
+        
             }
         ]
     }
