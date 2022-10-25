@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
 
 const Login = () => {
 
@@ -29,6 +30,7 @@ const Login = () => {
 
         </Form.Text>
       </Form>
+      <p>You have no account, Please <Link to='/register'>Create Account</Link></p>
     </div>
   );
 };

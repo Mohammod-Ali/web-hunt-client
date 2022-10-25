@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     return (
@@ -34,6 +35,7 @@ const Register = () => {
 
         </Form.Text>
       </Form>
+      <p>Already have an account. Please <Link to='/login'>Login</Link></p>
     </div>
     );
 };
