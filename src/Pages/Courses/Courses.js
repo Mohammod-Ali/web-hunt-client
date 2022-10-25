@@ -1,11 +1,20 @@
-import React from 'react';
+import React from "react";
+import { useLoaderData } from "react-router-dom";
+import Course from "../Course/Course";
 
 const Courses = () => {
-    return (
-        <div>
-            <h1>This is courses page</h1>
-        </div>
-    );
+  const courses = useLoaderData();
+  console.log(courses);
+  return (
+    <div>
+      <h1>We provide this {courses.length} Courses</h1>
+      <div className="card-container">
+        {courses.map((course) => (
+          <Course key={course.course_id} course={course}></Course>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Courses;
