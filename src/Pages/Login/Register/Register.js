@@ -4,9 +4,12 @@ import Form from "react-bootstrap/Form";
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+
+  
+
     return (
         <div className="w-50 mx-auto mt-5 ">
-            <h2>Registration Here</h2>
+            <h2>Registration Here: </h2>
       <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
