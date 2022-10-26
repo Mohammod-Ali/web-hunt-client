@@ -2,6 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
 
@@ -26,10 +27,15 @@ const Login = () => {
         <Button variant="primary" type="submit">
           Login
         </Button>
+        <br />
+        <Button className="mt-3" variant="outline-primary"><FaGoogle></FaGoogle> Login with Google</Button>
+        <Button className="mt-3 ms-3" variant="outline-primary"><FaGithub></FaGithub> Login with GitHub</Button>
+
         <Form.Text className="text-danger">
 
         </Form.Text>
       </Form>
+      <br />
       <p>You have no account, Please <Link to='/register'>Create Account</Link></p>
     </div>
   );
