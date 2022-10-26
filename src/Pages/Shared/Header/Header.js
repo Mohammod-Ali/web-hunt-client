@@ -2,20 +2,30 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
-import { FaMouse, FaUser } from "react-icons/fa";
-import { useContext } from "react";
+import { FaMouse, FaRegMoon, FaSun, FaUser } from "react-icons/fa";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import { Image } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
+import Switch from "react-switch";
+
 
 
 const Header = () => {
   const {user, logOut} = useContext(AuthContext)
+  const [checked, setChecked] = useState(false);
+
 const handleLogOut = () =>{
   logOut()
   .then(() => {})
   .catch(error => console.log(error))
 }
+
+
+
+const handleChange = nextChecked => {
+  setChecked(nextChecked);
+};
 
   return (
     <Navbar className="mb-5" collapseOnSelect expand="lg" bg="light" variant="light">
@@ -57,6 +67,8 @@ const handleLogOut = () =>{
               :
               <FaUser className="display-6"></FaUser>
             }
+             <Switch onChange={handleChange} checked={checked} className="react-switch ms-2 mt-2" />
+             <p className="ms-2 fs-3">{checked ? <FaSun></FaSun> : <FaRegMoon></FaRegMoon>}</p>
           </Nav>
         </Navbar.Collapse>
       </Container>
