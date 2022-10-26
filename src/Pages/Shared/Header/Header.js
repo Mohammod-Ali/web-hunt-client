@@ -28,7 +28,7 @@ const handleChange = nextChecked => {
 };
 
   return (
-    <Navbar className="mb-5" collapseOnSelect expand="lg" bg="light" variant="light">
+    <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
         <Navbar.Brand as={Link} to="/"><FaMouse className="me-2"></FaMouse> WEB-<span className="fw-bold">HUNT</span></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
