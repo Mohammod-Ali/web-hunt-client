@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
+  const [error, setError] = useState('')
 
   const {providerLogin, signIn} = useContext(AuthContext)
   const navigate = useNavigate()
+  const location = useLocation()
+
+  const from = location.state?.from?.pathname || '/'
 
   const googleProvider = new GoogleAuthProvider()
 
@@ -19,9 +23,11 @@ const Login = () => {
       .then(result => {
         const user = result.user;
         console.log(user)
-        navigate('/')
+        navigate(from, {replace: true})
       })
-      .catch(error => console.error(error))
+      .catch(error => {
+        console.error(error)
+      })
     }
 
 
@@ -36,9 +42,13 @@ const Login = () => {
         const user = result.user;
         console.log(user)
         form.reset()
-        navigate('/')
+        setError('')
+        navigate(from, {replace: true})
       })
-      .catch(error => console.error(error))
+      .catch(error => {
+        console.error(error)
+        setError(error.message)
+      })
 
   }
 
@@ -56,6 +66,9 @@ const Login = () => {
           <Form.Control name="password" type="password" placeholder="Password" required />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
+        <Form.Text className="text-danger">
+          {error}
+        </Form.Text> <br />
         <Button variant="primary" type="submit">
           Login
         </Button>
@@ -67,9 +80,7 @@ const Login = () => {
         {/* GitHub Login */}
         <Button className="mt-3 ms-3" variant="outline-primary"><FaGithub></FaGithub> Login with GitHub</Button>
 
-        <Form.Text className="text-danger">
-
-        </Form.Text>
+       
       </Form>
       <br />
       <p>You have no account, Please <Link to='/register'>Create Account</Link></p>

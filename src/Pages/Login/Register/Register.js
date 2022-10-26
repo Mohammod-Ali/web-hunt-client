@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -6,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
-
+const [error, setError] = useState('')
   const {createUser} = useContext(AuthContext)
   const navigate = useNavigate()
 
@@ -24,9 +25,13 @@ const Register = () => {
       const user = result.user;
       console.log(user)
       form.reset()
+      setError('')
       navigate('/')
     })
-    .catch(error => console.error(error))
+    .catch(error => {
+      console.error(error)
+      setError(error.message)
+    })
 
   }
 
@@ -53,13 +58,14 @@ const Register = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control name='password' type="password" placeholder="Password" required />
         </Form.Group>
+        <Form.Text className="text-danger">
+        {error}
+        </Form.Text> <br />
         <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
         <Button variant="primary" type="submit">
           Register
         </Button>
-        <Form.Text className="text-danger">
-
-        </Form.Text>
+        
       </Form>
       <p>Already have an account. Please <Link to='/login'>Login</Link></p>
     </div>
