@@ -1,10 +1,14 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project [Live site.](https://web-hunt-c84c5.web.app/).
 
-## Available Scripts
+## About this projects
 
-In the project directory, you can run:
+1. This project create using react.js
+2. This project using firebase for authentication.
+3. You can learn Web development from this site.
+4. You can read blogs from blogs section in this site.
+5. You can gain knowledge and skill for job market.
 
 ### `npm start`
 
