@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="page-footer  blue pt-4 border ">
+    <footer style={{marginBottom: "0px", position: "relative", bottom: "0", top:"70px",  width:"100%"}} className="page-footer  blue pt-4 border ">
       <div className="container-fluid text-center text-md-left">
         <div className="row">
           <div className="col-md-6 mt-md-0 mt-3">

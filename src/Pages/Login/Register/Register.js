@@ -36,7 +36,7 @@ const [error, setError] = useState('')
   }
 
     return (
-        <div className="w-50 mx-auto mt-5 ">
+        <div className="w-50 mx-auto mt-5 mb-5">
             <h2>Registration Here: </h2>
       <Form onSubmit={handleRegistration}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
