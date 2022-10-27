@@ -5,10 +5,9 @@ import Card from "react-bootstrap/Card";
 
 const Home = () => {
   const courses = useLoaderData();
-  console.log(courses);
+  // console.log(courses);
   return (
     <div>
-      {/* <h1>This is home: {courses.length}</h1> */}
       <Carousel fade>
         <Carousel.Item>
           <img
@@ -17,8 +16,7 @@ const Home = () => {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Basic skill on computer</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -29,8 +27,7 @@ const Home = () => {
           />
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Test your knowledge</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -41,35 +38,41 @@ const Home = () => {
           />
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+            <h3>Team work</h3>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-     <div className="card-container mt-5">
-     {
-        courses.map( course => (
-            <div className="d-flex align-items-center justify-content-center mt-5">
-      <Card className="mb-5" style={{ width: "280px", height: "440px" }}>
-        <Card.Img variant="top" style={{height: "230px", width: "280px"}} src={course?.image} />
-        <Card.Body>
-          <Card.Title>{course.course_name}</Card.Title>
-          <Card.Text>
-           {
-           course.course_details.length > 100 ? <p>{course.course_details.slice(0, 120) + '...'} <Link to={`/course/${course.course_id}`}>Read more...</Link></p>
-           : 
-           {}
-           }
-          </Card.Text>
-          
-        </Card.Body>
-      </Card>
-    </div>
-        ))
-      }
-     </div>
+      <div className="card-container mt-5">
+        {courses.map((course) => (
+          <div
+            key={course.course_id}
+            className="d-flex align-items-center justify-content-center mt-5"
+          >
+            <Card className="mb-5" style={{ width: "280px", height: "440px" }}>
+              <Card.Img
+                variant="top"
+                style={{ height: "230px", width: "280px" }}
+                src={course?.image}
+              />
+              <Card.Body>
+                <Card.Title>{course.course_name}</Card.Title>
+                <Card.Text>
+                  {course.course_details.length > 100 ? (
+                    <p>
+                      {course.course_details.slice(0, 120) + "..."}{" "}
+                      <Link to={`/course/${course.course_id}`}>
+                        Read more...
+                      </Link>
+                    </p>
+                  ) : (
+                    {}
+                  )}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

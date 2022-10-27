@@ -12,54 +12,57 @@ import CourseCart from "../../Pages/Shared/CourseCart/CourseCart";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main></Main>,
-        children: [
-            {
-                path: '/',
-                loader: ( ) => fetch('http://localhost:5000/courses'),
-                element: <Home></Home>
-            },
-            {
-                path: '/courses',
-                loader: ( ) => fetch('http://localhost:5000/courses'),
-                element: <Courses></Courses>
-            },
-            {
-                path: '/course/:id',
-                element: <CourseCart></CourseCart>,
-                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
-            },
-            {
-                path: '/premium/:id',
-                element: <PrivateRoute>
-                    <Premium></Premium>
-                </PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
-            },
-            {
-                path: '/faq',
-                element: < FAQ></FAQ>
-            },
-            {
-                path: '/blogs',
-                loader: () => fetch('http://localhost:5000/blogs'),
-                element: <Blogs></Blogs>
-            },
-            {
-                path: '/login',
-                element: <Login></Login>
-            }, 
-            {
-                path: '/register',
-                element: <Register></Register>
-            },
-            {
-                path: '*',
-                element: <NotFound></NotFound>
-        
-            }
-        ]
-    }
-])
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: "/",
+        loader: () => fetch(" https://web-hunt-server.vercel.app/courses"),
+        element: <Home></Home>,
+      },
+      {
+        path: "/courses",
+        loader: () => fetch(" https://web-hunt-server.vercel.app/courses"),
+        element: <Courses></Courses>,
+      },
+      {
+        path: "/course/:id",
+        element: <CourseCart></CourseCart>,
+        loader: ({ params }) =>
+          fetch(` https://web-hunt-server.vercel.app/course/${params.id}`),
+      },
+      {
+        path: "/premium/:id",
+        element: (
+          <PrivateRoute>
+            <Premium></Premium>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(` https://web-hunt-server.vercel.app/course/${params.id}`),
+      },
+      {
+        path: "/faq",
+        element: <FAQ></FAQ>,
+      },
+      {
+        path: "/blogs",
+        loader: () => fetch(" https://web-hunt-server.vercel.app/blogs"),
+        element: <Blogs></Blogs>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "*",
+        element: <NotFound></NotFound>,
+      },
+    ],
+  },
+]);
